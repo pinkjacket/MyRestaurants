@@ -17,13 +17,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:text="Welcome to MyRestaurants"
-        android:textColor="@color/colorTextIcons"
+        android:text="MyRestaurants"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/findRestaurantsButton"
@@ -36,6 +35,19 @@
         android:hapticFeedbackEnabled="false"
         android:text="Find Restaurants"
         android:textColor="@color/colorTextIcons" />
+
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:padding="5dp"
+        android:ems="10"
+        android:background="@color/colorTextIcons"
+        android:inputType="textPersonName"
+        android:hint="Enter zip code"
+        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
