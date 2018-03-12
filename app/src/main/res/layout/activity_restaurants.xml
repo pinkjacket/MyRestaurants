@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="pinkjacket.myrestaurants.RestaurantsActivity">
 
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nearby Restaurants"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </android.support.constraint.ConstraintLayout>
