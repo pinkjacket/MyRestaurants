@@ -3,6 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
+    useLibrary 'org.apache.http.legacy'
+
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+
     defaultConfig {
         applicationId "pinkjacket.myrestaurants"
         minSdkVersion 15
@@ -27,4 +34,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    testCompile 'org.robolectric:robolectric:3.0'
+    testCompile 'org.robolectric:shadows-support-v4:3.0'
 }
