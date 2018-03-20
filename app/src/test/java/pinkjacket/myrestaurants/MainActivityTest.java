@@ -12,6 +12,9 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
+import pinkjacket.myrestaurants.ui.MainActivity;
+import pinkjacket.myrestaurants.ui.RestaurantsActivity;
+
 import static junit.framework.Assert.assertTrue;
 
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)

@@ -1,4 +1,4 @@
-package pinkjacket.myrestaurants;
+package pinkjacket.myrestaurants.models;
 
 import java.util.ArrayList;
 

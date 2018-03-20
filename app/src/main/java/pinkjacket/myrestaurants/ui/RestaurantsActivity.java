@@ -1,4 +1,4 @@
-package pinkjacket.myrestaurants;
+package pinkjacket.myrestaurants.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +19,9 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import pinkjacket.myrestaurants.R;
+import pinkjacket.myrestaurants.models.Restaurant;
+import pinkjacket.myrestaurants.services.YelpService;
 
 public class RestaurantsActivity extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;

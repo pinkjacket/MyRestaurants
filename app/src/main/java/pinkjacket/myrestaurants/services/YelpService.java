@@ -1,4 +1,4 @@
-package pinkjacket.myrestaurants;
+package pinkjacket.myrestaurants.services;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +13,8 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import pinkjacket.myrestaurants.Constants;
+import pinkjacket.myrestaurants.models.Restaurant;
 
 public class YelpService {
     public static void findRestaurants(String location, Callback callback){
