@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.2"
     useLibrary 'org.apache.http.legacy'
 
-    repositories{
+    repositories {
         mavenCentral()
         jcenter()
     }
@@ -24,12 +24,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildTypes.each{
+    buildTypes.each {
         it.buildConfigField 'String', 'YELP_TOKEN', YelpToken
     }
 }
 
 dependencies {
+    implementation 'com.android.support:support-v4:26.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

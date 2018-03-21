@@ -13,7 +13,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 
 import pinkjacket.myrestaurants.ui.MainActivity;
-import pinkjacket.myrestaurants.ui.RestaurantsActivity;
+import pinkjacket.myrestaurants.ui.RestaurantListActivity;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -37,7 +37,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted() {
         activity.findViewById(R.id.findRestaurantsButton).performClick();
-        Intent expectedIntent = new Intent(activity, RestaurantsActivity.class);
+        Intent expectedIntent = new Intent(activity, RestaurantListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));
