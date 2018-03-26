@@ -38,18 +38,18 @@
         android:text="Find Restaurants"
         android:textColor="@color/colorTextIcons" />
 
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:padding="5dp"
-        android:ems="10"
-        android:background="@color/colorTextIcons"
-        android:inputType="textPersonName"
-        android:hint="Enter zip code"
-        android:layout_above="@+id/findRestaurantsButton"
-        android:layout_centerHorizontal="true" />
+    <!--<EditText-->
+        <!--android:id="@+id/locationEditText"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="11dp"-->
+        <!--android:padding="5dp"-->
+        <!--android:ems="10"-->
+        <!--android:background="@color/colorTextIcons"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:hint="Enter zip code"-->
+        <!--android:layout_above="@+id/findRestaurantsButton"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
     <Button
         android:layout_width="match_parent"
