@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "402266249671",
+    "firebase_url": "https://myrestaurants-ef90b.firebaseio.com",
+    "project_id": "myrestaurants-ef90b",
+    "storage_bucket": "myrestaurants-ef90b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402266249671:android:6f6ef61c7fe615a2",
+        "android_client_info": {
+          "package_name": "pinkjacket.myrestaurants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402266249671-4lls1mfc9v8lb0tooeto90nkosfrkh3d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pinkjacket.myrestaurants",
+            "certificate_hash": "ade14fa0a1a05eacb31aef38c02082da1507ea3c"
+          }
+        },
+        {
+          "client_id": "402266249671-cmkvqui331vs3tgfjvp0p8mv64m68elo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfNzkzneDG53r8OkseV3n0CTJL2Tu5pR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402266249671-cmkvqui331vs3tgfjvp0p8mv64m68elo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
