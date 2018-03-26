@@ -101,7 +101,7 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
             restaurantRef.push().setValue(mRestaurant);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();97201
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 

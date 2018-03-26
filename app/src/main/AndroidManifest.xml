@@ -25,7 +25,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pinkjacket.myrestaurants.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.RestaurantDetailActivity"></activity>
+        <activity android:name=".ui.RestaurantDetailActivity" />
+        <activity android:name=".SavedRestaurantListActivity"></activity>
     </application>
 
 </manifest>
