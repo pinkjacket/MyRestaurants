@@ -2,6 +2,9 @@ package pinkjacket.myrestaurants.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +21,10 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import pinkjacket.myrestaurants.R;
 import pinkjacket.myrestaurants.models.Restaurant;
 import pinkjacket.myrestaurants.ui.RestaurantDetailActivity;
+import pinkjacket.myrestaurants.ui.RestaurantDetailFragment;
 import pinkjacket.myrestaurants.util.ItemTouchHelperAdapter;
 import pinkjacket.myrestaurants.util.OnStartDragListener;
 
@@ -29,6 +34,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
     private Context mContext;
     private ChildEventListener mChildEventListener;
     private ArrayList<Restaurant> mRestaurants = new ArrayList<>();
+    private int mOrientation;
 
     public FirebaseRestaurantListAdapter(Class<Restaurant> modelClass, int modelLayout,
                                          Class<FirebaseRestaurantViewHolder> viewHolderClass,
@@ -66,24 +72,33 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
     }
 
     @Override
-    protected void populateViewHolder(final FirebaseRestaurantViewHolder viewHolder, Restaurant model, int position){
+    protected void populateViewHolder(final FirebaseRestaurantViewHolder viewHolder, Restaurant model, int position) {
         viewHolder.bindRestaurant(model);
-        viewHolder.mRestaurantImageView.setOnTouchListener(new View.OnTouchListener(){
+        mOrientation = viewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
+        viewHolder.mRestaurantImageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event){
-                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN){
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;
             }
         });
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
-                mContext.startActivity(intent);
+            public void onClick(View v) {
+                int itemPosition = viewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
+                    intent.putExtra("position", viewHolder.getAdapterPosition());
+                    intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
+                    mContext.startActivity(intent);
+                }
             }
         });
     }
@@ -115,5 +130,12 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
         super.cleanup();
         setIndexInFirebase();
         mRef.removeEventListener(mChildEventListener);
+    }
+
+    private void createDetailFragment(int position) {
+        RestaurantDetailFragment detailFragment = RestaurantDetailFragment.newInstance(mRestaurants, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.restaurantDetailContainer, detailFragment);
+        ft.commit();
     }
 }
