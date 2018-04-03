@@ -32,8 +32,6 @@ import pinkjacket.myrestaurants.services.YelpService;
 public class RestaurantListActivity extends AppCompatActivity {
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
-//    private String[] restaurants = new String[] {"Over the Moon", "Cafe Nervosa", "Bel Canto", "Jean's", "Cucina", "Tony's Meatball Hutch", "Shake Shack", "Lucky & Son", "Luscious Grape", "Uncle Moe's Family Feedbag", "Los Pollos Hermanos", "Boar's Nest", "Snowclone Coffee", "Cheers", "Legitimate Bakery", "Soup and a Sandwich", "Slammin' Nutt", "Pastabilities"};
-//    private String[] cuisines = new String[] {"Charcuterie", "Coffee and pastries", "Italian food", "Coffee and snacks", "Italian food", "Meatballs", "Burgers and shakes", "Breakfast", "Wine", "Family-style dining", "Chicken", "Delicatessen", "Coffee", "Beer", "Baked goods", "Soup and sandwiches", "Donuts", "Pasta"};
     public static final String TAG = RestaurantListActivity.class.getSimpleName();
     public ArrayList<Restaurant> restaurants = new ArrayList<>();
     private SharedPreferences mSharedPreferences;
