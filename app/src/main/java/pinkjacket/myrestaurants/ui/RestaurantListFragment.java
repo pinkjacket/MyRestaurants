@@ -1,6 +1,7 @@
 package pinkjacket.myrestaurants.ui;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,6 +30,7 @@ import pinkjacket.myrestaurants.R;
 import pinkjacket.myrestaurants.adapters.RestaurantListAdapter;
 import pinkjacket.myrestaurants.models.Restaurant;
 import pinkjacket.myrestaurants.services.YelpService;
+import pinkjacket.myrestaurants.util.OnRestaurantSelectedListener;
 
 
 public class RestaurantListFragment extends Fragment {
@@ -39,10 +41,21 @@ public class RestaurantListFragment extends Fragment {
     private SharedPreferences mSharedPreferences;
     private String mRecentAddress;
     private SharedPreferences.Editor mEditor;
+    private OnRestaurantSelectedListener mOnRestaurantSelectedListener;
 
 
     public RestaurantListFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        try {
+            mOnRestaurantSelectedListener = (OnRestaurantSelectedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
     }
 
     @Override
@@ -119,7 +132,7 @@ public class RestaurantListFragment extends Fragment {
 
                     @Override
                     public void run(){
-                        mAdapter = new RestaurantListAdapter(getActivity(), restaurants);
+                        mAdapter = new RestaurantListAdapter(getActivity(), restaurants, mOnRestaurantSelectedListener);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(getActivity());
