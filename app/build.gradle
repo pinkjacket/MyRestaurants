@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.3.0"
+    buildToolsVersion "26.0.2"
     useLibrary 'org.apache.http.legacy'
 
     repositories {
@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:27.3.0'
+    implementation 'com.android.support:support-v4:27.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
